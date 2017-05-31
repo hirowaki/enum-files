@@ -1,0 +1,9 @@
+doc/
+test/
+coverage/
+.travis.yml
+.node-version
+.eslintrc
+.gitignore
+jsdoc.conf
+Makefile
