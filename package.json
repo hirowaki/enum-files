@@ -1,0 +1,37 @@
+{
+  "name": "enum-files",
+  "version": "0.0.1",
+  "description": "enum files and directories recursively.",
+  "author": "hirowaki",
+  "url": " https://github.com/hirowaki",
+  "email": "hirowaki0314@gmail.com",
+  "license": "MIT",
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/hirowaki/enum-files.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "lint": "eslint index.js lib/ test/ sample/",
+    "jsdoc" : "jsdoc -c ./jsdoc.conf -t ./node_modules/ink-docstrap/template -R README.md",
+    "deploy": "npm run jsdoc && gh-pages -d doc"
+  },
+  "dependencies": {
+    "bluebird": "*"
+  },
+  "devDependencies": {
+    "mocha": "~3.4.2",
+    "sinon": "*",
+    "eslint": "*",
+    "istanbul": "*",
+    "jsdoc": "*",
+    "ink-docstrap": "*",
+    "gh-pages": "*"
+  },
+  "keywords": [
+    "enum files",
+    "enumerate files"
+  ]
+}
