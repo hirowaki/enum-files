@@ -6,6 +6,20 @@ const Promise = require('bluebird');
 const fsExtra = require('fs-extra-promise').usePromise(Promise); // using bluebird.
 const EnumFiles = require('./../index');
 
+// structure.
+// test -
+//      - testFolder
+//                   - test1
+//                           - test1.txt
+//                           - test1_1
+//                                       - test1.txt
+//                                       - test2.txt
+//                           - test1_2
+//                           - test2.txt
+//                   - test1.txt
+//                   - test2
+//                   - test2.txt
+
 function createTestFolders() {
     return removeTestFolders()
     .then(() => {
@@ -322,6 +336,54 @@ describe('EnumFiles', function () {
                 .then((res) => {
                     assert.deepEqual(res, []);
                 });
+            });
+        });
+    });
+
+    describe('Just to make sure, hit all public functions. Black box tests.', function () {
+        it('dir.', function () {
+            return EnumFiles.dir('test/testFolder')
+            .then((res) => {
+                assert.deepEqual(res, [
+                    'test/testFolder/test1',
+                    'test/testFolder/test2'
+                ]);
+            });
+        });
+
+        it('dirRecursively.', function () {
+            return EnumFiles.dirRecursively('test/testFolder', true)
+            .then((res) => {
+                assert.deepEqual(res, [
+                    'test/testFolder/test1',
+                    'test/testFolder/test1/test1_1',
+                    'test/testFolder/test1/test1_2',
+                    'test/testFolder/test2'
+                ]);
+            });
+        });
+
+        it('files.', function () {
+            return EnumFiles.files('test/testFolder')
+            .then((res) => {
+                assert.deepEqual(res, [
+                    'test/testFolder/test1.txt',
+                    'test/testFolder/test2.txt'
+                ]);
+            });
+        });
+
+        it('filesRecursively.', function () {
+            return EnumFiles.filesRecursively('test/testFolder', true)
+            .then((res) => {
+                assert.deepEqual(res, [
+                    'test/testFolder/test1.txt',
+                    'test/testFolder/test2.txt',
+                    'test/testFolder/test1/test1.txt',
+                    'test/testFolder/test1/test2.txt',
+                    'test/testFolder/test1/test1_1/test1.txt',
+                    'test/testFolder/test1/test1_1/test2.txt'
+                ]);
             });
         });
     });

@@ -4,6 +4,8 @@
 * Enumerate files and directories recursively.
 * Using Promise ([bluebird](https://www.npmjs.com/package/bluebird)).
 * Using *Class*. node.js above 4.x is required.
+* [Repo](https://github.com/hirowaki/enum-files)
+* [Document](https://hirowaki.github.io/enum-files)
 
 #### How to use?
 
@@ -17,7 +19,7 @@ $ npm install enum-files
 * filesRecursively(dir)
 * dir(dir)
 * dirRecursively(dir)
-* [Reference here]()
+* [Reference here](https://hirowaki.github.io/enum-files)
 
 ##### Sample code.
 ```js
