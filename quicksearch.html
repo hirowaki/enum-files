@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body style="background: transparent;">
+    <script src="scripts/docstrap.lib.js"></script>
+    <script src="scripts/lunr.min.js"></script>
+    <script src="scripts/fulltext-search.js"></script>
+
+    <script type="text/x-docstrap-searchdb">
+    {"classes.list.html":{"id":"classes.list.html","title":"Classes","body":" Documentation Classes EnumFiles Classes Classes EnumFiles × Search results Close "},"index.html":{"id":"index.html","title":"Index","body":" Documentation Classes EnumFiles enum-filesDescription Enumerate files and directories recursively. Using Promise (bluebird). Using Class. node.js above 4.x is required. How to use?Install$ npm install enum-filesfunctions. files(dir) filesRecursively(dir) dir(dir) dirRecursively(dir) Reference here Sample code.const EnumFiles = require('enum-files'); // find all javascript files in the dir recursively. function findJSFiles(dir) { return EnumFiles.filesRecursively(dir) .then((files) =&gt; { return files.filter((file) =&gt; { return /\\.js$/.test(file); }); }); } // find all directories which has &quot;test&quot; in the path under the dir recursively. function findTestDirectories(dir) { return EnumFiles.dirRecursively(dir) .then((directories) =&gt; { return directories.filter((directory) =&gt; { return /\\/test\\//.test(directory); }); }); }developmentnpm install$ make installtest (using mocha)$ npm testlinting$ npm run lintLICENSEThe MIT License (MIT) Copyright (c) 2017 hirowaki (https://github.com/hirowaki). Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. × Search results Close "},"EnumFiles.html":{"id":"EnumFiles.html","title":"Class: EnumFiles","body":" Documentation Classes EnumFiles Class: EnumFiles EnumFiles Class for EnumFiles. This class has static functions only. No fields. Class is being used as kinda namespace here. new EnumFiles() Methods &lt;static&gt; files(filepath) Enumerate files under the filepath. You can get the files just under the directory (filepath). This function does not run search against sub directories. When you'd like to run it recursively, call filesRecursively instead. return EnumFiles.files('test') .then((files) =&gt; { // Here, the files would be like this. // [ // 'test/test1.txt', // 'test/test2.txt' // ] }); If the file path does not exist, the result would simply be an empty array instead of an error. Parameters: Name Type Description filepath string filepath to find. See: EnumFiles.filesRecursively Returns: Promise.([string, string, string, ...]) Type Promise.&lt;Array&gt; &lt;static&gt; filesRecursively(filepath) Enumerate files under the filepath *recursively*. You can get the all files under the directory and its child-directories. This function does run search recursively. return EnumFiles.filesRecursively('test') .then((files) =&gt; { // Here, the files would be like this. // [ // 'test/test1.txt', // 'test/test2.txt' // 'test/test1/test1.txt', // 'test/test1/test2.txt' // 'test/test1/test1_1/test1.txt', // 'test/test1/test1_1/test2.txt' // ] }); If the file path does not exist, the result would simply be an empty array instead of an error. Parameters: Name Type Description filepath string filepath to find. See: EnumFiles.files Returns: Promise.([string, string, string, ...]) Type Promise.&lt;Array&gt; &lt;static&gt; dir(filepath) Enumerate directories under the filepath. You can get the directories just under the directory (filepath). This function does not run search against sub directories. When you'd like to run it recursively, call dirRecursively instead. return EnumFiles.dir('test') .then((directories) =&gt; { // Here, the directories would be like this. // [ // 'test/test1', // 'test/test2' // ] }); If the file path does not exist, the result would simply be an empty array instead of an error. Parameters: Name Type Description filepath string filepath to find. See: EnumFiles.dirRecursively Returns: Promise.([string, string, string, ...]) Type Promise.&lt;Array&gt; &lt;static&gt; dirRecursively(filepath) Enumerate directories under the filepath *recursively*. You can get the all directories under the directory and its child-directories. This function does run search recursively. return EnumFiles.dirRecursively('test') .then((directories) =&gt; { // Here, the directories would be like this. // [ // 'test/test1', // 'test/test1/test1_1', // 'test/test1/test1_2', // 'test/test2' // ] }); If the file path does not exist, the result would simply be an empty array instead of an error. Parameters: Name Type Description filepath string filepath to find. See: EnumFiles.dir Returns: Promise.([string, string, string, ...]) Type Promise.&lt;Array&gt; × Search results Close "}}
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            Searcher.init();
+        });
+
+        $(window).on("message", function(msg) {
+            var msgData = msg.originalEvent.data;
+
+            if (msgData.msgid != "docstrap.quicksearch.start") {
+                return;
+            }
+
+            var results = Searcher.search(msgData.searchTerms);
+
+            window.parent.postMessage({"results": results, "msgid": "docstrap.quicksearch.done"}, "*");
+        });
+    </script>
+</body>
+</html>
