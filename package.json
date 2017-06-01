@@ -2,9 +2,11 @@
   "name": "enum-files",
   "version": "0.0.1",
   "description": "enum files and directories recursively.",
-  "author": "hirowaki",
-  "url": "https://github.com/hirowaki",
-  "email": "hirowaki0314@gmail.com",
+  "author": {
+    "name": "hirowaki",
+    "email": "hirowaki0314@gmail.com",
+    "url": "https://github.com/hirowaki"
+  },
   "license": "MIT",
   "repository" :
   {
