@@ -1,4 +1,5 @@
 # enum-files
+[![Build Status](https://travis-ci.org/hirowaki/enum-files.svg?branch=master)](https://travis-ci.org/hirowaki/enum-files)
 
 #### Description
 * Enumerate files and directories recursively.
