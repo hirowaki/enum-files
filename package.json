@@ -1,6 +1,6 @@
 {
   "name": "enum-files",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "enum files and directories recursively.",
   "author": {
     "name": "hirowaki",
@@ -8,10 +8,9 @@
     "url": "https://github.com/hirowaki"
   },
   "license": "MIT",
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "https://github.com/hirowaki/enum-files.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hirowaki/enum-files.git"
   },
   "main": "index.js",
   "engines": {
@@ -20,7 +19,7 @@
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
     "lint": "eslint index.js lib/ test/",
-    "jsdoc" : "jsdoc -c ./jsdoc.conf -t ./node_modules/ink-docstrap/template -R README.md",
+    "jsdoc": "jsdoc -c ./jsdoc.conf -t ./node_modules/ink-docstrap/template -R README.md",
     "deploy": "npm run jsdoc && gh-pages -d doc"
   },
   "dependencies": {
