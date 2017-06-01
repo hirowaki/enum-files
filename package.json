@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "enum files and directories recursively.",
   "author": "hirowaki",
-  "url": " https://github.com/hirowaki",
+  "url": "https://github.com/hirowaki",
   "email": "hirowaki0314@gmail.com",
   "license": "MIT",
   "repository" :
@@ -12,6 +12,9 @@
     "url" : "https://github.com/hirowaki/enum-files.git"
   },
   "main": "index.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
     "lint": "eslint index.js lib/ test/",

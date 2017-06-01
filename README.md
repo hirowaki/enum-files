@@ -1,8 +1,51 @@
 # enum-files
 
-#####
+#### Description
 * Enumerate files and directories recursively.
 * Using Promise ([bluebird](https://www.npmjs.com/package/bluebird)).
+* Using *Class*. node.js above 4.x is required.
+
+#### How to use?
+
+##### Install
+```
+$ npm install enum-files
+```
+
+##### functions.
+* files(dir)
+* filesRecursively(dir)
+* dir(dir)
+* dirRecursively(dir)
+* [Reference here]()
+
+##### Sample code.
+```js
+const EnumFiles = require('enum-files');
+
+// find all javascript files in the dir recursively.
+function findJSFiles(dir) {
+    return EnumFiles.filesRecursively(dir)
+    .then((files) => {
+        return files.filter((file) => {
+            return /\.js$/.test(file);
+        });
+    });
+}
+
+// find all directories which has "test" in the path under the dir recursively.
+function findTestDirectories(dir) {
+    return EnumFiles.dirRecursively(dir)
+    .then((directories) => {
+        return directories.filter((directory) => {
+            return /\/test\//.test(directory);
+        });
+    });
+}
+```
+
+
+#### development 
 
 ##### npm install
 ```
