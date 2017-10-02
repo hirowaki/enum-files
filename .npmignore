@@ -5,5 +5,6 @@ coverage/
 .node-version
 .eslintrc
 .gitignore
+.idea
 jsdoc.conf
 Makefile
