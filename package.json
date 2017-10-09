@@ -1,6 +1,6 @@
 {
   "name": "enum-files",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "enum files and directories recursively.",
   "author": {
     "name": "hirowaki",
